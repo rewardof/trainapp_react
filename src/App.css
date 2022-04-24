@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    position: relative;
+    padding-top: 20px;
+}
+
+.table-box {
+    margin-top: 30px;
+}
+
+.calculate-box {
+    display: block;
+    width: 100%;
+    padding: 0 20px;
+    overflow: hidden;
+    animation-name: example;
+    animation-duration: 2s;
+}
+
+.calculate-box.active {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.result-box {
+    padding: 0 20px;
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 20px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.result-box.active {
+    opacity: 1;
+    visibility: visible;
+    animation-name: example;
+    animation-duration: 2s;
+}
+
+.mb-5 {
+    margin-bottom: 10px;
+}
+
+.app.active {
+    animation-name: example;
+    animation-duration: 2s;
+}
+
+@keyframes example {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.header-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-box .btn-box {
+    display: flex;
+    gap: 10px;
+}
+
+.ant-divider-horizontal {
+    margin: 8px 0 !important;
+}
+
+.result-box .ant-tag {
+    font-size: 14px !important;
+    border: 1px solid #d9d9d9;
+    display: flex !important;
+    align-items: center !important;
+}
