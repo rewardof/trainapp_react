@@ -1,7 +1,4 @@
-import React, {useState, useEffect} from "react";
-
-import "./App.css";
-import "antd/dist/antd.css";
+import React, { useState, useEffect } from "react";
 import Colculate from "./components/calculate";
 import Result from "./components/result";
 import axios from "axios";
@@ -78,7 +75,7 @@ function App() {
     return (
         <div className={toggle ? "app" : "app active"}>
             <div className={toggle ? "calculate-box active" : "calculate-box "}>
-                <Colculate getResult={getResult} list={list} togglePage={togglePage}/>
+                <Colculate getResult={getResult} list={list} togglePage={togglePage} />
             </div>
             <div className={toggle ? "result-box active" : "result-box"}>
                 <Result

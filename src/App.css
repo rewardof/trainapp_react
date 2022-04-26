@@ -3,7 +3,22 @@
     padding: 0;
     box-sizing: border-box;
 }
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
 
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(240, 237, 237);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(224, 221, 221);
+}
 .app {
     position: relative;
     padding-top: 20px;
@@ -82,4 +97,7 @@
     border: 1px solid #d9d9d9;
     display: flex !important;
     align-items: center !important;
+}
+.ant-btn{
+    border-radius: 7px !important;
 }
