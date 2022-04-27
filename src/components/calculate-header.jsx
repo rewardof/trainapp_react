@@ -1,12 +1,12 @@
 import { Col, message, Row, Tag } from "antd";
 import React, { useState } from "react";
 import { Form, Input, Button } from "antd";
-import axios from "axios";
 import {
   RightOutlined,
   DeleteOutlined,
   DownloadOutlined,
 } from "@ant-design/icons";
+import axios from "../api/axios";
 const Header = ({ getResult, togglePage }) => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
@@ -19,7 +19,7 @@ const Header = ({ getResult, togglePage }) => {
     formData.append("number", values.number);
     formData.append("load_weight", values.load_weight);
     axios
-      .post("https://trainresapp.herokuapp.com/number/", formData)
+      .post("/number/", formData)
       .then(() => {
         getResult();
         form.resetFields();
@@ -37,7 +37,7 @@ const Header = ({ getResult, togglePage }) => {
   const handleDownload = () => {
     setDownload(true);
     axios({
-      url: "https://trainresapp.herokuapp.com/export-vagons-data/",
+      url: "/export-vagons-data/",
       method: "GET",
       responseType: "blob", // important
     }).then((response) => {
@@ -53,7 +53,7 @@ const Header = ({ getResult, togglePage }) => {
   const handleDelete = () => {
     setDelete(true);
     axios
-      .delete("https://trainresapp.herokuapp.com/delete-vagons-data/")
+      .delete("/delete-vagons-data/")
       .then((res) => {
         setDelete(false);
         getResult();

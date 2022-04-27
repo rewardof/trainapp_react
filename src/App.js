@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
+import axios from "./api/axios";
 import Colculate from "./components/calculate";
 import Result from "./components/result";
-import axios from "axios";
 
 function App() {
     const [list, setList] = useState([]);
@@ -13,9 +13,8 @@ function App() {
     const [visible, setVisible] = useState(false);
     const [distance, setDistance] = useState(0);
     const getResult = () => {
-        axios("https://trainresapp.herokuapp.com/number/")
+        axios("/number/")
             .then((res) => {
-                console.log(res.data)
                 setList(res.data);
             })
             .catch((error) => {
@@ -23,7 +22,7 @@ function App() {
             });
     };
     const getLocomotive = () => {
-        axios("https://trainresapp.herokuapp.com/locomotivs/")
+        axios("/locomotivs/")
             .then((res) => {
                 setLocomotivs(res.data);
             })
@@ -32,7 +31,7 @@ function App() {
             });
     };
     const getRelSwitch = () => {
-        axios("https://trainresapp.herokuapp.com/switch-list/")
+        axios("/switch-list/")
             .then((res) => {
                 setRelSwitch(res.data);
             })
@@ -41,7 +40,7 @@ function App() {
             });
     };
     const getRelChar = () => {
-        axios("https://trainresapp.herokuapp.com/railway-charachteristics-list/")
+        axios("/railway-charachteristics-list/")
             .then((res) => {
                 setRelChar(res.data);
             })
@@ -51,7 +50,7 @@ function App() {
     };
     const getData = (values) => {
         axios({
-            url: `https://trainresapp.herokuapp.com/result/`,
+            url: `/result/`,
             method: "POST",
             data: values
         }).then((res) => {

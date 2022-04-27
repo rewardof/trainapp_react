@@ -5,10 +5,10 @@ import {
   DownloadOutlined,
   PlusOutlined,
 } from "@ant-design/icons";
-import axios from "axios";
 import CustomDrawer from "./Drawer";
 import ResultForm from "./ResultForm";
 import DistanceForm from "./DistanceForm";
+import axios from "../api/axios";
 
 const Header = ({
   togglePage,
@@ -34,7 +34,7 @@ const Header = ({
   const handleDownload = () => {
     setDownload(true);
     axios({
-      url: "https://trainresapp.herokuapp.com/export-resistance-data/",
+      url: "/export-resistance-data/",
       method: "GET",
       responseType: "blob", // important
     }).then((response) => {
@@ -47,6 +47,10 @@ const Header = ({
       setDownload(false);
     });
   };
+  const getInitialValue = () => {
+    return JSON.parse(localStorage.getItem("distance"));
+  };
+
   return (
     <div>
       <CustomDrawer
@@ -84,6 +88,11 @@ const Header = ({
         <div className="btn-box">
           {distance > 0 && (
             <Tag color="green">Tormozlanish masofasi : {distance}</Tag>
+          )}
+          {getInitialValue().distance > 0 && (
+            <Tag color="green">
+              Tormozlanish masofasi : {getInitialValue().distance}
+            </Tag>
           )}
           <Button
             type="primary"
