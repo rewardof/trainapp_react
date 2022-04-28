@@ -3,7 +3,7 @@ import { Form, Input, Button, Space } from "antd";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import axios from "../api/axios";
 
-const Demo = () => {
+const Demo = ({ setFindDistance, setVisible }) => {
   const [loading, setLoading] = useState(false);
   const [max_capacity, setMaxCap] = useState(0);
   const [coefficient1, setCoefficient1] = useState(0);
@@ -18,9 +18,10 @@ const Demo = () => {
     axios
       .post("/finding_distance/", values)
       .then((response) => {
-        localStorage.setItem("distance", JSON.stringify(response.data));
+        setFindDistance(response.data);
         form.resetFields();
         setLoading(false);
+        setVisible(false);
       })
       .catch((error) => {
         console.log(error);
@@ -50,8 +51,8 @@ const Demo = () => {
         <Form.Item
           name="coefficient1"
           rules={[{ required: true, message: "Kayfitsent 1 ni kiriting" }]}
-          validateStatus={coefficient1 > 6 ? "error" : ""}
-          help={coefficient1 > 6 ? "6 xonali sondan oshmasligi kerak" : ""}
+          validateStatus={coefficient1 > 3 ? "error" : ""}
+          help={coefficient1 > 3 ? "3 xonali sondan oshmasligi kerak" : ""}
         >
           <Input
             placeholder="Kayfitsent 1"
@@ -61,8 +62,8 @@ const Demo = () => {
         <Form.Item
           name="coefficient2"
           rules={[{ required: true, message: "Kayfitsent 2 ni kiriting" }]}
-          validateStatus={coefficient2 > 6 ? "error" : ""}
-          help={coefficient2 > 6 ? "6 xonali sondan oshmasligi kerak" : ""}
+          validateStatus={coefficient2 > 3 ? "error" : ""}
+          help={coefficient2 > 3 ? "3 xonali sondan oshmasligi kerak" : ""}
         >
           <Input
             placeholder="Kayfitsent 2"
@@ -95,8 +96,8 @@ const Demo = () => {
                   {...restField}
                   name={[name, "declivity"]}
                   rules={[{ required: true }]}
-                  validateStatus={declivity > 6 ? "error" : ""}
-                  help={declivity > 6 ? "6 xonali sondan oshmasligi kerak" : ""}
+                  validateStatus={declivity > 3 ? "error" : ""}
+                  help={declivity > 3 ? "3 xonali sondan oshmasligi kerak" : ""}
                 >
                   <Input
                     placeholder="declivity"

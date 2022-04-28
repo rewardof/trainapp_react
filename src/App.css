@@ -101,3 +101,20 @@
 .ant-btn{
     border-radius: 7px !important;
 }
+.tag{
+    display: flex;
+    flex-direction: column;
+    line-height: 16px;
+    align-items: left;
+    justify-content: center;
+    margin-right: 15px;
+}
+.tag .distance {
+    font-size: 14px;
+    font-family: "Ubuntu", "sans-serif";
+}
+.tag .time{
+    font-size: 11px;
+    font-family: "Ubuntu",
+    "sans-serif";
+}

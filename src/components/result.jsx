@@ -11,6 +11,7 @@ const TableView = ({
   visible,
   setVisible,
   distance,
+  breakingTime,
 }) => {
   const columns = [
     {
@@ -233,6 +234,7 @@ const TableView = ({
           visible={visible}
           setVisible={setVisible}
           distance={distance}
+          breakingTime={breakingTime}
         />
       </div>
       <Table

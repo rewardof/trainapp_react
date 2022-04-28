@@ -12,6 +12,8 @@ function App() {
     const [toggle, setToggle] = useState(false);
     const [visible, setVisible] = useState(false);
     const [distance, setDistance] = useState(0);
+    const [breakingTime, setBreakingTime] = useState(0);
+
     const getResult = () => {
         axios("/number/")
             .then((res) => {
@@ -57,6 +59,7 @@ function App() {
             setData(res.data.result);
             setVisible(false)
             setDistance(res.data.braking_distance)
+            setBreakingTime(res.data.braking_time)
         })
             .catch((error) => {
                 console.error(error);
@@ -87,6 +90,7 @@ function App() {
                     visible={visible}
                     setVisible={setVisible}
                     distance={distance}
+                    breakingTime={breakingTime}
                 />
             </div>
         </div>

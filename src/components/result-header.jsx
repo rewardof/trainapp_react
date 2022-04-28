@@ -19,6 +19,7 @@ const Header = ({
   visible,
   setVisible,
   distance,
+  breakingTime,
 }) => {
   const showDrawer = (type) => {
     setVisible(true);
@@ -30,6 +31,7 @@ const Header = ({
   };
   const [download, setDownload] = useState(false);
   const [childType, setChildType] = useState(null);
+  const [findDistance, setFindDistance] = useState(null);
 
   const handleDownload = () => {
     setDownload(true);
@@ -47,9 +49,6 @@ const Header = ({
       setDownload(false);
     });
   };
-  const getInitialValue = () => {
-    return JSON.parse(localStorage.getItem("distance"));
-  };
 
   return (
     <div>
@@ -66,7 +65,12 @@ const Header = ({
             relSwitch={relSwitch}
           />
         )}
-        {childType === "distance" && <DistanceForm />}
+        {childType === "distance" && (
+          <DistanceForm
+            setFindDistance={setFindDistance}
+            setVisible={setVisible}
+          />
+        )}
       </CustomDrawer>
       <div className="header-box">
         <div style={{ display: "flex", gap: "10px" }}>
@@ -87,12 +91,31 @@ const Header = ({
         </div>
         <div className="btn-box">
           {distance > 0 && (
-            <Tag color="green">Tormozlanish masofasi : {distance}</Tag>
+            <div className="tag">
+              <div className="distance">Tormozlanish masofasi : {distance}</div>
+              <div className="time">Vaqti : {breakingTime}</div>
+            </div>
           )}
-          {getInitialValue().distance > 0 && (
-            <Tag color="green">
-              Tormozlanish masofasi : {getInitialValue().distance}
-            </Tag>
+          {findDistance?.distance > 0 && (
+            <div className="tag">
+              <div className="distance">
+                Yurgan yo'li : {findDistance?.distance}
+              </div>
+              <div className="time">
+                Vaqti : {findDistance?.time.toString().slice(0, 5)}
+              </div>
+            </div>
+          )}
+          {findDistance?.distance > 0 && distance > 0 && (
+            <div className="tag">
+              <div className="distance">
+                Umumiy masofa : {findDistance?.distance + distance}
+              </div>
+              <div className="time">
+                Umumiy vaqt :
+                {(findDistance?.time + breakingTime).toString().slice(0, 5)}
+              </div>
+            </div>
           )}
           <Button
             type="primary"
