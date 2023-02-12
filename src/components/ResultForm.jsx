@@ -37,7 +37,7 @@ const ResultForm = ({ getData, locomotivs, relChar, relSwitch }) => {
         <Input placeholder="Egrilik uzunligi" name="length_curvature" />
       </Form.Item>
       <Form.Item name="railway_switch_mark">
-        <Select placeholder="Yo'l xarakteristikasi">
+        <Select placeholder="Strelkali o'tkazgich turi">
           {relSwitch?.map((data, key) => {
             return (
               <Option key={key} value={data.id}>
@@ -54,7 +54,7 @@ const ResultForm = ({ getData, locomotivs, relChar, relSwitch }) => {
         <Input placeholder="Shamol tezligi" name="wind_capacity" />
       </Form.Item>
       <Form.Item name="railway_characteristic">
-        <Select placeholder="Strelkali o'tkazgich turi">
+        <Select placeholder="Yo'l xarakteristikasi">
           {relChar?.map((data, key) => {
             return (
               <Option key={key} value={data.id}>

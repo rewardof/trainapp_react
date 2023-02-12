@@ -44,29 +44,29 @@ const Demo = ({ setFindDistance, setVisible }) => {
           help={max_capacity > 6 ? "6 xonali sondan oshmasligi kerak" : ""}
         >
           <Input
-            placeholder="Maksimal Quvvat"
+            placeholder="Maksimal tezlik"
             onChange={(e) => setMaxCap(e.target.value.length)}
           />
         </Form.Item>
         <Form.Item
           name="coefficient1"
-          rules={[{ required: true, message: "Kayfitsent 1 ni kiriting" }]}
-          validateStatus={coefficient1 > 3 ? "error" : ""}
-          help={coefficient1 > 3 ? "3 xonali sondan oshmasligi kerak" : ""}
+          rules={[{ required: true, message: "Koefitsiyent 1 ni kiriting" }]}
+          validateStatus={coefficient1 > 6 ? "error" : ""}
+          help={coefficient1 > 6 ? "6 xonali sondan oshmasligi kerak" : ""}
         >
           <Input
-            placeholder="Kayfitsent 1"
+            placeholder="Koefitsiyent 1"
             onChange={(e) => setCoefficient1(e.target.value.length)}
           />
         </Form.Item>
         <Form.Item
           name="coefficient2"
-          rules={[{ required: true, message: "Kayfitsent 2 ni kiriting" }]}
-          validateStatus={coefficient2 > 3 ? "error" : ""}
-          help={coefficient2 > 3 ? "3 xonali sondan oshmasligi kerak" : ""}
+          rules={[{ required: true, message: "Koefitsiyent 2 ni kiriting" }]}
+          validateStatus={coefficient2 > 6 ? "error" : ""}
+          help={coefficient2 > 6 ? "6 xonali sondan oshmasligi kerak" : ""}
         >
           <Input
-            placeholder="Kayfitsent 2"
+            placeholder="Koefitsiyent 2"
             onChange={(e) => setCoefficient2(e.target.value.length)}
           />
         </Form.Item>

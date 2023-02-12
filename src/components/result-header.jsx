@@ -92,28 +92,31 @@ const Header = ({
         <div className="btn-box">
           {distance > 0 && (
             <div className="tag">
-              <div className="distance">Tormozlanish masofasi : {distance}</div>
-              <div className="time">Vaqti : {breakingTime}</div>
+              <div className="distance">Tormozlanish masofasi : {distance} m</div>
+              <div className="time">Vaqti : {breakingTime} s</div>
             </div>
           )}
           {findDistance?.distance > 0 && (
             <div className="tag">
               <div className="distance">
-                Yurgan yo'li : {findDistance?.distance}
+                Yurish masofasi : {findDistance?.distance - distance} m
               </div>
               <div className="time">
-                Vaqti : {findDistance?.time.toString().slice(0, 5)}
+                Vaqti : {findDistance?.time.toString().slice(0, 5)} s
               </div>
             </div>
           )}
           {findDistance?.distance > 0 && distance > 0 && (
             <div className="tag">
               <div className="distance">
-                Umumiy masofa : {findDistance?.distance + distance}
+                Umumiy masofa : {findDistance?.distance} m
               </div>
               <div className="time">
                 Umumiy vaqt :
-                {(findDistance?.time + breakingTime).toString().slice(0, 5)}
+                {(findDistance?.time + breakingTime).toString().slice(0, 5)} s
+              </div>
+              <div className="distance">
+                Umumiy yoqilg'i miqdori : {findDistance?.dizel} kg
               </div>
             </div>
           )}

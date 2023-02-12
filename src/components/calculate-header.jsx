@@ -68,8 +68,7 @@ const Header = ({ getResult, togglePage }) => {
       <Row gutter={24}>
         <Col span={12}>
           <Tag color="blue" style={{ marginBottom: "20px", fontSize: "14px" }}>
-            Manyovr tarkibining to‘xtash yo‘li uzunligini hisoblash uchun dastur
-          </Tag>
+            Manyovr yarim reyslarini bajarishga sarflanadigan vaqt va yoqilg‘i miqdorini aniqlash uchun dastur</Tag>
         </Col>
       </Row>
       <Row gutter={24}>
