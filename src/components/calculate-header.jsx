@@ -1,6 +1,7 @@
 import { Col, message, Row, Tag } from "antd";
 import React, { useState } from "react";
 import { Form, Input, Button } from "antd";
+import LoudFileExe from "./ModalLoad";
 import {
   RightOutlined,
   DeleteOutlined,
@@ -63,16 +64,37 @@ const Header = ({ getResult, togglePage }) => {
         console.log(error);
       });
   };
+
+  // const props = {
+  //   name: "file",
+  //   action: "https://rewardof.pythonanywhere.com/number/upload/",
+  //   headers: {
+  //     authorization: "authorization-text",
+  //   },
+  //   onChange(info) {
+  //     if (info.file.status !== "uploading") {
+  //       console.log(info.file, info.fileList);
+  //     }
+  //     if (info.file.status === "done") {
+  //       message.success(`${info.file.name} file uploaded successfully`);
+  //
+  //     } else if (info.file.status === "error") {
+  //       message.error(`${info.file.name} file upload failed.`);
+  //     }
+  //   },
+  // };
   return (
     <>
       <Row gutter={24}>
         <Col span={12}>
           <Tag color="blue" style={{ marginBottom: "20px", fontSize: "14px" }}>
-            Manyovr yarim reyslarini bajarishga sarflanadigan vaqt va yoqilg‘i miqdorini aniqlash uchun dastur</Tag>
+            Manyovr yarim reyslarini bajarishga sarflanadigan vaqt va yoqilg‘i
+            miqdorini aniqlash uchun dastur
+          </Tag>
         </Col>
       </Row>
       <Row gutter={24}>
-        <Col span={12}>
+        <Col span={16}>
           <Form
             layout="inline"
             form={form}
@@ -106,9 +128,13 @@ const Header = ({ getResult, togglePage }) => {
                 Submit
               </Button>
             </Form.Item>
+            <Form.Item>
+              <LoudFileExe getResult={getResult} />
+            </Form.Item>
           </Form>
         </Col>
-        <Col span={12} style={{ display: "flex", justifyContent: "flex-end" }}>
+
+        <Col span={8} style={{ display: "flex", justifyContent: "flex-end" }}>
           <Button
             type="danger"
             style={{ marginRight: "5px" }}
