@@ -88,8 +88,7 @@ const Header = ({ getResult, togglePage }) => {
       <Row gutter={24}>
         <Col span={12}>
           <Tag color="blue" style={{ marginBottom: "20px", fontSize: "14px" }}>
-            Manyovr yarim reyslarini bajarishga sarflanadigan vaqt va yoqilg‘i
-            miqdorini aniqlash uchun dastur
+            Вагон рақами орқали унинг тортиш ҳисобларида зарур бўлган параметрларини аниқлаш учун дастур
           </Tag>
         </Col>
       </Row>
